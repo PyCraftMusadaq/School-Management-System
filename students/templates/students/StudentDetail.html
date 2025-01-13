@@ -1,0 +1,56 @@
+{% extends 'students/base.html'%}
+{% load  static %}
+{% block styleblock %}
+<link rel="stylesheet" href="{% static 'css/studentdetail.css'%}">
+{% endblock styleblock %}
+
+{% block main-section %}
+<div class="hero">
+    <div class="detail">
+        <h1>Student Detail</h1>
+    </div>
+    <form action="" method="GET" class="form-class">
+        <label for="search">Enter Student's First Name</label>
+        <input type="text" name="name" id="search" placeholder="Search via Name" class="inputfield">
+    </form>
+
+    <div class="data-table">
+    <table class="table">
+        <tr>
+            <td rowspan="2" colspan="2" class="imgrow">
+                <img src="{{ student.Student_Image.url }}" alt="Student Image" style="width:100%;background:cover;">
+            </td>
+            <th>First Name</th>
+            <td>{{ student.First_Name }}</td>
+            <th>Last Name</th>
+            <td>{{ student.Last_Name }}</td>
+        </tr>
+        <tr>
+            <th>Date of Birth</th>
+            <td>{{ student.Date_of_Birth }}</td>
+            <th>Class</th>
+            <td>{{ student.Class }}</td>
+        </tr>
+        <tr>
+            <th>Gender</th>
+            <td>{{ student.Gender }}</td>
+            <th>Place of Birth</th>
+            <td>{{ student.Place_of_Birth }}</td>
+            <th>Nationality</th>
+            <td>{{ student.Nationality }}</td>
+        </tr>
+        <tr>
+            <th>First Language</th>
+            <td>{{ student.First_Langugae }}</td>
+            <th>Date of Admission</th>
+            <td>{{ student.Date_of_Admission }}</td>
+            <th>Other Languages Known</th>
+            <td>{{ student.other_Languages_known }}</td>
+        </tr>
+    </table>
+</div>
+
+
+
+</div>
+{% endblock main-section %}

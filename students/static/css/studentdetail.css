@@ -1,0 +1,64 @@
+body {
+    background-color:#fde9df;
+}
+
+.detail{
+    margin-top:1%;
+    margin-left:40%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size:18px;
+}
+
+.form-class{
+    margin-top:2%;
+    margin-left:33%;
+    width:100%;
+}
+label{
+    font-style: oblique;
+    font-size:20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.inputfield{
+    background-color: white;
+    height:50px;
+    border:2px solid purple;
+    border-radius: 30px;
+    width:300px;
+    margin:5px;
+    text-align: center;
+}
+
+.data-table{
+    margin-top:10px;
+    margin-left:25%;
+    height:1000px;
+}
+.table {
+    width: 50%;
+    border-collapse: collapse;
+    text-align:center;
+    margin-top:10%;
+    margin-left:10%;
+    background-color:darkviolet;
+    color:white;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.7);
+
+}
+tbody{
+    height:100%;
+    border:1px solid purple !important;
+    border-radius: 20px !important;
+}
+td{
+    width:25%;
+}
+th, td {
+    border: 1px solid black;
+    border-radius: 20px;
+}
+.table th, .table td {
+    padding: 10px;
+    text-align: center;
+}

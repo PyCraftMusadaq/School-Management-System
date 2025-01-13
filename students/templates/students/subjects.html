@@ -1,0 +1,48 @@
+{% extends 'students/base.html'%}
+{% load static %}
+{% block styleblock %}
+<link rel="stylesheet" href="{% static 'css/subject.css'%}">
+<link rel="stylesheet" href="{% static 'css/Addsubject.css'%}">
+{% endblock styleblock %}
+
+{% block main-section %}
+<div class="hero">
+    <div class="sub-title">
+          <h1>SUBJECTS</h1>
+    </div>
+    <div class="subjects-list">
+        <table>
+            <thead>
+                <tr>
+                    <th>Subject title</th>
+                    <th>Subject Tutor</th>
+                    <th>Total Marks</th>
+                    <th>Class</th>
+                </tr>
+            </thead>
+            <tbody>
+               {% for subject in subjects %}
+               <tr>
+                <td><a href="{% url 'updatesubject' subject.id %}">{{subject.title}}</a></td>
+                <td>{{subject.tutor}}</td>
+                <td>{{subject.marks}}</td>
+                <td>{{subject.Class}}</td>
+               </tr>
+               {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% if updatesubjectcall %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="update-part">
+            {% for field in form %}
+            {{field.label_tag}}
+            {{field}}
+            {% endfor %}
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+    {% endif %}
+</div>
+{% endblock main-section %}

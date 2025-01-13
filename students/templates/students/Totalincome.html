@@ -1,0 +1,55 @@
+{% extends "students/base.html" %}
+{% load static %}
+{% block styleblock %}
+<link rel="stylesheet" href="{% static 'css/income.css'%}">
+{% endblock styleblock %}
+
+{% block main-section %}
+ <div class="title">
+    <h1>Statistics</h1>
+ </div>
+<div class="main-board">
+    <div class="cards">
+        <h1>
+            Monthly Income
+        </h1>
+        <h2>
+        {{Total_fee}}  PKR
+        </h2>
+    </div>
+    <div class="cards">
+        <h1>Total Students</h1>
+        <h2>{{Total_students}}</h2>
+    </div>
+    <div class="cards">
+        <h1>Total Teachers</h1>
+        <h2>{{Total_teachers}}</h2>
+    </div>
+</div>
+<div class="table-data">
+    <h2>Expenses of Month</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Amount</th>
+                <th id="comment">Comment</th>
+                <th>Date</th>
+            </tr>
+            <tbody>
+                {% for record in records %}
+                <tr>
+                    <td><a href="{% url 'updateexpense' record.id %}">{{record.id}}</a></td>
+                    <td>{{record.Name}}</td>
+                    <td>{{record.Amount}}</td>
+                    <td>{{record.comment}}</td>
+                    <td>{{record.Date}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </thead>
+    </table>
+</div>
+{% endblock main-section %}
+

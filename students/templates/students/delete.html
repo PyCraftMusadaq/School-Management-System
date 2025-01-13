@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>delete</title>
+    <link rel="stylesheet" href="{% static 'css/delete.css'%}">
+
+</head>
+<body>
+    <div class="deletediv">
+        <a href="{{request.META.HTTP_REFERER}}" class="back-btn">Back</a>
+        <form action="" method="POST" class="form-part">
+            {% csrf_token %}
+            <p>Are You Sure? You want to delete {{obj}} ?</p>
+            <div class="confirmbutton">
+                <input type="submit" value="Confirm" class="sub-btn">
+            </div>
+        </form>
+    </div>    
+</body>
+</html>

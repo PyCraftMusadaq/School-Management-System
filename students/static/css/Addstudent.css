@@ -1,0 +1,121 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    /* border:1px solid black; */
+}
+
+body{
+    background: #fde9df; 
+}
+
+.heading{
+    width:100%;
+    text-align: center;
+    margin-top:200px;
+    font-size:20px;
+    font-weight: 800;
+}
+
+.heading span{
+    border:1px solid purple;
+    background-color: white;
+    padding:10px 20px;
+    border-radius:20px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    
+}
+
+
+.form-part{
+    margin-top:250px; 
+    margin-bottom: 50px;
+}
+.bond-line{
+    border:none;
+    border-top:1.5px solid black;
+    width:90%;
+    margin:0 auto;
+}
+.form-part h2{
+    margin-left:70px
+}
+
+.form-part .labeltag h2{
+    margin:0;
+    font-size:18px;
+    padding-left: 15px;
+}
+.inputfield{
+    background-color: white;
+    height:50px;
+    border:2px solid purple;
+    border-radius: 30px;
+    width:220px;
+    margin:5px;
+    text-align: center;
+}
+
+.inputfield:focus{
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    background-color: white;
+    height:50px;
+    border:2px solid purple;
+    border-radius: 30px;
+    width:220px;
+    margin:5px;
+}
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top:50px;
+    width:80%;
+    margin-left:80px;
+
+}
+
+.inner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.outer-portion{
+    margin-top:100px;
+}
+
+
+.middle{
+    display: flex;
+    align-items: center ;
+    justify-content: space-between ;
+}
+
+.submit-btn{
+    width:100px;
+    height:70px;
+    font-family: 'Courier New', Courier, monospace;
+    color:white;
+    border:1px solid white;
+    border-radius: 20px;;
+    background-color:blueviolet;
+    margin-left:500px;
+    margin-top:100px;
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
+    cursor: pointer;
+}
+
+.cancel-btn{
+    width:100px;
+    height:70px;
+    font-family: 'Courier New', Courier, monospace;
+    color:white;
+    background-color: blueviolet;
+    padding:25px;
+    border:1px solid white;
+    border-radius: 20px;
+    margin-left:20px;
+    text-decoration: none;
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
+}

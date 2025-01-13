@@ -1,0 +1,113 @@
+{% extends 'students/base.html' %}
+{% load static %}
+{% block styleblock %}
+ <link rel="stylesheet" href="{% static 'css/attendancereport.css' %}">
+{% endblock styleblock %}
+
+{% block main-section %}
+ <div class="hero">
+    <div class="main-title">
+        <h1>Daily Attendance Report</h1>
+    </div>
+    <div class="message-portion">
+        {% for message in messages %}
+        <p>{{message}}</p>
+        {% endfor %}
+    </div>
+    <div class="reset-button">
+        <a href="{% url 'attendencestatics' %}" class="my-btn">Reset</a>
+    </div>
+    <div class="first-row">
+        <div class="inner-part">
+            <h3>Report Card</h3>
+            <form action="{% url 'attendancereport'%}" method="GET">
+                <label for="dt">Enter Date</label>
+                <input type="date" name="current_date" id="dt" class="date_field">
+                <input type="submit" value="Search" class="sub-btn">
+            </form>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Class</th>
+                        <th>Total</th>
+                        <th>Present</th>
+                        <th>Absent</th>
+                        <th>Leave</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for class,data in context_total.items %}
+                    <tr>
+                        <th>{{class}}</th>
+                        {% for value in data %}
+                        <td>{{value}}</td>
+                        {% endfor %}
+                        
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="inner-part1">
+            <form action="{% url 'attendencestatics' %}" method="GET" class="second-form">
+                <label for="f1">Enter Class</label>
+                <select name="Class" id="cl" class="inputfield">
+                    <option value="Nursery">Nursery</option>
+                    <option value="Prep">Prep</option>
+                    <option value="One">One</option>
+                    <option value="Two">Two</option>
+                    <option value="Three">Three</option>
+                    <option value="Four">Four</option>
+                    <option value="Five">Five</option>
+                    <option value="Six">Six</option>
+                    <option value="Seven">Seven</option>
+                    <option value="Eight">Eight</option>
+                    <option value="9th">9th</option>
+                    <option value="10th">10th</option>
+                </select>
+                <label for="dt1">Enter date</label>
+                <input type="date" name="current_date" id="dt1" class="inputfield">
+                <label for="st">Enter Status</label>
+                <select name="status" id="st" class="inputfield">
+                    <option value="P">Present</option>
+                    <option value="A">Absent</option>
+                    <option value="L">Leave</option>
+                </select>
+                <div class="button-second">
+                    <input type="submit" value="Enter" class="sb-btn">
+                </div>
+                
+            </form>
+        </div>
+
+        <div class="student-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Full Name</th>
+                        <th>Father Name</th>
+                        <th>Class</th>
+                        <th>Roll No</th>
+                        <th>status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for student in students %}
+                    <tr>
+                        <td>{{student.id}}</td>
+                        <td>{{student.Full_Name}}</td>
+                        <td>{{student.Father_Name}}</td>
+                        <td>{{student.Class}}</td>
+                        <td>{{student.Roll_No}}</td>
+                        <td>{{student.status}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    
+    </div>
+    
+ </div>
+{% endblock main-section %}

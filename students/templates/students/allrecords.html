@@ -1,0 +1,66 @@
+{% extends "students/base.html" %}
+{% load static %}
+{% block styleblock %}
+<link rel="stylesheet" href="{% static 'fonts/css/all.css' %}">
+<link rel="stylesheet" href="{% static 'css/Allrecords.css' %}">
+{% endblock styleblock %}
+{% block main-section %}
+<div class="hero">
+    {% for message in messages %}
+    <span class="message-alert">{{message}}</span>
+    {% endfor %}
+    <h1 class="report-heading">All Records</h1>
+    <div class="search">
+        <form action="" method="GET">
+            <label for="search">Search</label>
+            <input type="text" name="q" placeholder="Enter Your Query Here"  class="inputfield">
+        </form>
+        <a href="{% url 'allstudents' %}" class="All-btn">All Students</a>
+    </div>
+
+    <table class="table-data">
+        <thead>        
+        <tr>
+            <th>Enrollment ID</th>
+            <th>Roll No.</th>
+            <th>Full Name</th>
+            <th>Father Name</th>
+            <th>Class</th>
+            <th>session</th>
+            <th>Gender</th>
+            <th>Delete</th>
+        </tr>
+       </thead>
+        <tbody>
+        {% for student in page_obj %}
+        <tr>
+            <td>{{student.id}}</td>
+            <td><a href="{% url 'updaterollno' student.id %}" style="text-decoration:none; color:black;">{{student.Roll_No}}</a></td>
+            <td>{{student.Full_Name}}</td>
+            <td>{{student.Father_Name}}</td>
+            <td>{{student.Class}}</td>
+            <td>{{student.session}}</td>
+            <td>{{student.Gender}}</td>
+            <td><a href="{% url 'deletestudent' student.id %}" style="text-decoration:none;color:black;">Delete</a></td>
+        </tr> 
+        {% endfor %}
+        </tbody>
+        <tfoot>
+        </tfoot>
+    </table>
+    <div>
+        <div class="pagnination">
+            {% if page_obj.has_previous %}
+            <a href="?page={{page_obj.previous_page_number}}" class="prev"><i class="fa-solid fa-arrow-left"></i></a>
+            {% endif %}
+
+           <span class="pagenumber">{{page_obj.number}}</span>
+            
+           {% if page_obj.has_next %}
+            <a href="?page={{page_obj.next_page_number}}" class="next"><i class="fa-solid fa-arrow-right"></i></a>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+{% endblock main-section %}

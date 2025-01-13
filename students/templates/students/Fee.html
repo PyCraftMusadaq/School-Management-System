@@ -1,0 +1,96 @@
+{% extends "students/base.html" %}
+{% load static %}
+{% block styleblock %}
+<link rel="stylesheet" href="{% static 'css/fee.css' %}">
+{% endblock styleblock %}
+
+{% block main-section %}
+<div class="hero">
+    <div class="main-display">
+        <div class="form-control">
+            <h2>Enter Fee</h2>
+            <form action="{% url 'addfee' %}" method="POST">
+                {% csrf_token %}
+                {% for field in feeform %}
+                <div class="inner-part">
+                    {{field.label_tag}}
+                    {{field}}
+                </div>
+                {% endfor %}
+                <div class="button-class">
+                    <input type="submit" value="Submit" class="submit-btn">
+                </div>        
+            </form>
+        </div>
+        <div class="fee-table1">
+            <h2 >Fee Table</h2>
+            <table class="fee-detail">
+                <thead>
+                    <tr class="table-heading">
+                        <th id="unique1">ID</th>
+                        <th>Class</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for fee in fees %}
+                        <tr>
+                            <td><a href="{% url 'updatefee' fee.id%}" style="color:black;">{{fee.id}}</a></td>
+                            <td>{{fee.Class}}</td>
+                            <td>{{fee.Amount}}</td>
+                            
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>  
+        
+        <div class="search-vouchers">
+           <h2>Get Vouchers</h2>
+        <form action="{% url 'feevoucher' %}" method="GET">
+            <label for="class-select" id="mylabel" class="label-list">Select Class:</label>
+            <select name="Class" id="class-select">
+            <option value="">--Please choose an option--</option>
+            <option value="Nursery">Nursery</option>
+            <option value="Prep">Prep</option>
+            <option value="One">One</option>
+            <option value="Two">Two</option>
+            <option value="Three">Three</option>
+            <option value="Four">Four</option>
+            <option value="Five">Five</option>
+            <option value="Six">Six</option>
+            <option value="Seven">Seven</option>
+            <option value="Eight">Eight</option>
+            <option value="9th">9th</option>
+            <option value="10th">10th</option>
+            </select>
+             <br>
+            <label for="class-month" id="mylabel" class="label-list">Month:</label>
+            <select name="Month" id="class-month">
+            <option value="">--Please choose an option--</option>
+            <option value="January">January</option>
+            <option value="Feburary">Feburary</option>
+            <option value="March">March</option>
+            <option value="April">April</option>
+            <option value="May">May</option>
+            <option value="June">June</option>
+            <option value="July">July</option>
+            <option value="August">August</option>
+            <option value="September">September</option>
+            <option value="October">October</option>
+            <option value="November">November</option>
+            <option value="December">December</option>
+            </select>
+             <br>
+            <label for="class-date" id="mylabel" class="label-list">Select Date:</label>
+            <input type="date" name="date" placeholder="Select Date" id="class-date">
+            <div class="button">
+                <input type="submit" value="Search" class="submit-btn">
+            </div>
+        </form>
+        
+        </div>
+    </div>
+</div>
+{% endblock main-section %}
+

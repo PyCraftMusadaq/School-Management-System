@@ -1,0 +1,28 @@
+{% extends 'students/base.html'%}
+{% load static %}
+{% block styleblock %}
+<link rel="stylesheet" href="{% static 'css/expenses.css'%}">
+{% endblock styleblock %}
+
+{% block main-section %}
+<div class="hero">
+    <div class="title">
+        <h2>Manage Your Expense</h2>
+    </div>
+    <div class="inputform">
+        <form action="" method="POST">
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="inner-part">
+                {{field.label_tag}}
+                {{field}}
+            </div>
+            {% endfor %}
+            <div class="button">
+                <input type="submit" value="Submit" class="sub-button">
+            </div>
+            
+        </form>
+    </div>
+</div>
+{% endblock main-section %}

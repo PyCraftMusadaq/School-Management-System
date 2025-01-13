@@ -1,0 +1,24 @@
+{% extends 'students/base.html'%}
+{% load static %}
+{% block styleblock %}
+<link rel="stylesheet" href="{% static 'css/updatefee.css'%}">
+{% endblock styleblock %}
+
+{% block main-section %}
+<div class="form-control">
+    <h2>Enter Fee</h2>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {% for field in feeform %}
+        <div class="inner-part">
+            {{field.label_tag}}
+            {{field}}
+        </div>
+        {% endfor %}
+        <div class="button-class">
+            <input type="submit" value="Submit" class="submit-btn">
+        </div>        
+    </form>
+</div>
+
+{% endblock main-section %}

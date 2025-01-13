@@ -1,0 +1,21 @@
+{% extends "students/base.html" %}
+{% load static %}
+{% block styleblock %}
+ <link rel="stylesheet" href="{% static 'css/updateform.css'%}">
+{% endblock styleblock %}
+
+{% block main-section %}
+<div class="hero">
+    <form action="" method="POST" class="form-control">
+        {% csrf_token %}
+        {% for field in forms  %}
+        <span class="lable-tags">{{field.label_tag}}</span>
+        <span class="fields-tags">{{field}}</span>
+        <br>
+        {% endfor %}
+        <input type="submit" value="Submit" class="submit-btn">
+        <a href="{% url 'allstudents' %}" class="cancel-btn">Back</a>
+    </form>
+</div>
+{% endblock main-section %}
+

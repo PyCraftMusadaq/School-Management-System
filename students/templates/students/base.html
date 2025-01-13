@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor Manager</title>
+    <link rel="stylesheet" href="{% static 'fonts/css/all.css'%}">
+    <link rel="stylesheet" href="{% static 'css/mystyle.css'%}">
+    {% block styleblock %}{% endblock styleblock %}
+</head>
+<body>
+    <div class="menu_bar">
+        <h1 class="logo">The Mentor System</h1>
+        <ul>
+            <li><a href="{% url 'admin:index'%}">AdminPanel</a></li>
+            <li>
+                <a href="#">Students<i class="fas fa-caret-down"></i></a>
+                <div class="dropdown_menu">
+                    <ul>
+                        <li><a href="{% url 'registration' %}">Add Student</a></li>
+                        <li><a href="{% url 'allstudents' %}">Show Students</a></li>
+                        <li><a href="{% url 'promotestudents' %}">Promote Students</a></li>
+                        <li><a href="{% url 'studentdetail' %}">Student Detail</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="#">Teachers<i class="fas fa-caret-down"></i></a>
+                <div class="dropdown_menu">
+                    <ul>
+                        <li><a href="{% url 'addteacher'%}">Add Teacher</a></li>
+                        <li><a href="{% url 'allteachers' %}">Show Teacher</a></li>
+                        <li><a href="{% url 'teacherdetail' %}">Teacher's Detail </a></li>
+                    </ul>
+                </div>
+            </a></li>
+            <li><a href="#">Accounts<i class="fas fa-caret-down"></i></a>
+                <div class="dropdown_menu">
+                    <ul>
+                        <li><a href="{% url 'accounts' %}">Total Income</a></li>
+                        <li><a href="{% url 'expenses' %}">Total Expense</a></li>
+                        <li><a href="{% url 'pendingdues' %}">Pending Dues</a></li>
+                    </ul>
+                </div>
+            </a></li>
+            <li><a href="#">Fees<i class="fas fa-caret-down"></i></a>
+                <div class="dropdown_menu">
+                    <ul>
+                        <li><a href="{% url 'fee' %}">Fee Voucher</a></li>
+                        <li><a href="{% url 'feerecords' %}">Add Fee</a></li>
+                        <li><a href="{% url 'feereport' %}">Fee Report</a></li>
+                        <li><a href="{% url 'defaultstudents'%}">Defaulter Students</a></li>
+                    </ul>
+                </div>
+            </a></li>
+            <li><a href="#">Attendence<i class="fas fa-caret-down"></i></a>
+                <div class="dropdown_menu">
+                    <ul>
+                        <li><a href="{% url 'studentattendence' %}">Mark Attendence</a></li>
+                        <li><a href="{% url 'attendancereport'%}">Attendence Report</a></li>
+                        <li><a href="{% url 'percentagedetail' %}">Percentage Detail</a></li>
+                        <li><a href="{% url 'teacherattandance' %}">Teacher Attendence</a></li>
+                    </ul>
+                </div>
+            </a></li>
+            <li><a href="#">Exams<i class="fas fa-caret-down"></i></a>
+                <div class="dropdown_menu">
+                    <ul>
+                        <li><a href="{% url 'addexam'%}">New Record</a></li>
+                        <li><a href="{% url 'marksrecord' %}">Show Record</a></li>
+                    </ul>
+                </div>
+            </a></li>
+            <li><a href="#">Setting<i class="fas fa-caret-down"></i></a>
+                <div class="dropdown_menu">
+                    <ul>
+                        <li><a href="{% url 'subjects' %}">Subject</a></li>
+                        <li><a href="{% url 'addsubject' %}">Add Subject</a></li>
+                    </ul>
+                </div>
+            </a></li>
+        </ul>
+    </div>
+    {% block main-section %}
+    {% endblock main-section %}
+</body>
+</html>

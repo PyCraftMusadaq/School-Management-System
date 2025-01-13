@@ -1,0 +1,14 @@
+{% extends "students/base.html" %}
+{% load static %}
+{% block styleblock %}
+<link rel="stylesheet" href="{% static 'css/index.css'%}">
+{% endblock styleblock %}
+
+{% block main-section %}
+<div class="hero">
+    <h1 class="heading">Welcome to Mentor Management System</h1>
+    <div class="logo-img">
+        <img src="{% static 'images/logo.jpg'%}" alt="logo image" class="logoimg">
+    </div>
+</div>
+{% endblock main-section %}

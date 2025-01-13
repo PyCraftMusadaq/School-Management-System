@@ -1,0 +1,120 @@
+{% extends 'students/base.html' %}
+{% load static %}
+
+{% block styleblock %}
+<link rel="stylesheet" href="{% static 'css/attendence.css' %}">
+{% endblock styleblock %}
+
+{% block main-section %}
+<div class="hero">
+    <div class="choices">
+        <a href="{% url 'teacherattandance'%}" class="choice-button"> Mark Attandance</a>
+        <a href="{% url 'teacherattandancreport'%}" class="choice-button">Check Report</a>
+    </div>
+    {% if choice == "Markattendance" %}
+    <div class="heading-title">
+        <h1>Mark Attendance</h1>
+    </div>
+    
+    <div class="form-control">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <table >
+                <thead>
+                    <tr>
+                        <th>CNIC</th>
+                        <th>Full Name</th>
+                        <th>Father Name</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for teacher in teachers %}
+                    <tr>
+                        <td>{{ teacher.Cnic }}</td>
+                        <td>{{ teacher.Full_Name }}</td>
+                        <td>{{ teacher.Father_Name }}</td>
+                        <td>{{ date }}</td>
+                        <td>
+                            <select name="status_{{ teacher.Cnic }}">
+                                <option value="P" >Present</option>
+                                <option value="A" >Absent</option>
+                                <option value="L" >On Leave</option>
+                            </select>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="btn">
+                <input type="submit" value="Submit" class="submit-button">
+            </div>
+            
+        </form>
+    </div>
+    {% else %}
+    <div class="report-part">
+       <div class="total-card">
+        <h2>Report</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Total</th>
+                    <th>Present</th>
+                    <th>Absent</th>
+                    <th>Leave</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{Total}}</td>
+                    <td>{{Present}}</td>
+                    <td>{{Absent}}</td>
+                    <td>{{Leave}}</td>
+                </tr>
+            </tbody>
+        </table>
+       </div>
+       <div class="search-table">
+        <form action="{% url 'teacherattandancestatistics' %}" method="GET" class="second-form">
+            <label for="dt1">Enter date</label>
+            <input type="date" name="current_date" id="dt1" class="inputfield">
+            <label for="st">Enter Status</label>
+            <select name="status" id="st" class="inputfield">
+                <option value="P">Present</option>
+                <option value="A">Absent</option>
+                <option value="L">Leave</option>
+            </select>
+            <div class="button-second">
+                <input type="submit" value="Enter" class="sb-btn">
+            </div>
+            
+        </form>
+        <table class="table-form">
+            <thead>
+                <tr>
+                    <th>CNIC</th>
+                    <th>Full Name</th>
+                    <th>Father Name</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for teacher in teachers %}
+                <tr>
+                    <td>{{teacher.Cnic}}</td>
+                    <td>{{teacher.Full_Name}}</td>
+                    <td>{{teacher.Father_Name}}</td>
+                    <td>{{teacher.Date}}</td>
+                    <td>{{teacher.status}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+       </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock main-section %}

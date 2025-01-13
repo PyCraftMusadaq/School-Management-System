@@ -1,0 +1,77 @@
+{% extends 'students/base.html' %}
+{% load static %}
+
+{% block styleblock %}
+<link rel="stylesheet" href="{% static 'css/attendence.css' %}">
+{% endblock styleblock %}
+
+{% block main-section %}
+<div class="hero">
+    <div class="heading-title">
+        <h1>Mark Attendance</h1>
+    </div>
+    <div class="attendance-table"></div>
+    <div class="search">
+        <form action="" method="GET">
+            {% comment %} <input type="text" name="q" placeholder="class" class="inputfield"> {% endcomment %}
+            <select name="q" id="" class="inputfield">
+                <option value="Nursery">Nursery</option>
+                <option value="Prep">Prep</option>
+                <option value="One">One</option>
+                <option value="Two">Two</option>
+                <option value="Three">Three</option>
+                <option value="Four">Four</option>
+                <option value="Five">Five</option>
+                <option value="Six">Six</option>
+                <option value="Seven">Seven</option>
+                <option value="Eight">Eight</option>
+                <option value="9th">9th</option>
+                <option value="10th">10th</option>
+            </select>
+            <input type="number" name="session" value="Session",class="search-btn">
+            <input type="submit" value="Search" class="search-btn">
+        </form>
+    </div>
+    <div class="form-control">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <table >
+                <thead>
+                    <tr>
+                        <th>Enrollment ID</th>
+                        <th>Full Name</th>
+                        <th>Father Name</th>
+                        <th>Class</th>
+                        <th>Roll NO</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for student in students %}
+                    <tr>
+                        <td>{{ student.id }}</td>
+                        <td>{{ student.Full_Name }}</td>
+                        <td>{{ student.Father_Name }}</td>
+                        <td>{{ student.Class }}</td>
+                        <td>{{ student.Roll_No }}</td>
+                        <td>{{ date }}</td>
+                        <td>
+                            <select name="status_{{ student.id }}">
+                                <option value="P" >Present</option>
+                                <option value="A" >Absent</option>
+                                <option value="L" >On Leave</option>
+                            </select>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="btn">
+                <input type="submit" value="Submit" class="submit-button">
+            </div>
+            
+        </form>
+    </div>
+</div>
+{% endblock main-section %}

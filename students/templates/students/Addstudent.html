@@ -1,0 +1,429 @@
+{% extends "students/base.html" %}
+{% load static %}
+{% block styleblock %}
+<link rel="stylesheet" href="{% static 'css/Addstudent.css'%}">
+{% endblock styleblock %}
+
+{% block main-section %}
+ <div class="hero">
+    <div class="heading">
+        <h1><span>Admission Form</span></h1>
+    </div>
+    
+    <div class="form-part">
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+        <div class="outer-portion">
+            <h2 class="title">Student Information</h2>
+            <hr class='bond-line'>
+            <div class="container">
+                <div class="inner">
+                  <label for="fname" class="labeltag"><h2>Student's First Name</h2></label>
+                  <input type="text" id="fname" name="firstname" placeholder="First Name" class="inputfield">
+                </div>
+                <div class="inner">
+                  <label for="lname" class="labeltag"><h2>Student's Last Name</h2></label>
+                  <input type="text" id="lname" name="lasttname" placeholder="Last Name" class="inputfield">
+                </div>
+                <div class="inner">
+                  <label for="dob" class="labeltag"><h2>Date of Birth</h2></label>
+                  <input type="date" id="dob" name="dob" placeholder="Date o Birth" class="inputfield">
+                </div>
+                <div class="inner">
+                  <label for="class" class="labeltag"><h2>Class</h2></label>
+                  <select name="class" id="" class="inputfield">
+                    <option value="Playgroup">Playgroup</option>
+                    <option value="Nursery">Nursery</option>
+                    <option value="Prep">Prep</option>
+                    <option value="One">One</option>
+                    <option value="Two">Two</option>
+                    <option value="Three">Three</option>
+                    <option value="Four">Four</option>
+                    <option value="Five">Five</option>
+                    <option value="Six">Six</option>
+                    <option value="Seven">Seven</option>
+                    <option value="Eight">Eight</option>
+                    <option value="9th">9th</option>
+                    <option value="10th">10th</option>
+                </select>
+                  </div>
+                  <div class="inner">
+                    <label for="gender" class="labeltag"><h2>Gender</h2></label>
+                    <input type="text" id="gender" name="gender" placeholder="Gender" class="inputfield">
+                    </div>
+            </div>
+            <div class="container">
+                <div class="inner">
+                  <label for="pob" class="labeltag"><h2>Place of Birth</h2></label>
+                  <input type="text" name="pob" id="pob" placeholder="Multan etc.." class="inputfield">
+                </div>
+                <div class="inner">
+                  <label for="nationality" class="labeltag"><h2>Nationality</h2></label>
+                  <input type="text" name="nationality" id="nationality" placeholder="Pakistani" class="inputfield">
+                </div>
+                <div class="inner">
+                  <label for="firstlang" class="labeltag"><h2>First Language</h2></label>
+                  <input type="text" id="firstlang" name="firstlang" placeholder="firstlang" class="inputfield">
+                </div>
+                <div class="inner">
+                  <label for="DOA" class="labeltag"><h2>Date of Admission</h2></label>
+                  <input type="date" id="DOA" name="DOA" placeholder="Date" class="inputfield">
+                </div>
+                <div class="inner">
+                    <label for="otherlang" class="labeltag"><h2>Other Languages</h2></label>
+                    <input type="text" id="otherlang" name="otherlang" placeholder="Eng.." class="inputfield">
+                </div>
+            </div>
+            <div class="container">
+             
+                <div class="inner">
+                    <label for="addr" class="labeltag"><h2>Address</h2></label>
+                    <input type="text" id="addr" name="addr" placeholder="Eng.." class="inputfield">
+                </div>
+                <div class="inner">
+                    <label for="city" class="labeltag"><h2>City</h2></label>
+                    <input type="text" id="city" name="city" placeholder="Eng.." class="inputfield">
+                </div>
+                <div class="inner">
+                    <label for="state" class="labeltag"><h2>State</h2></label>
+                    <input type="text" id="state" name="state" placeholder="Eng.." class="inputfield">
+                </div>
+                <div class="inner">
+                    <label for="image" class="labeltag"><h2>image</h2></label>
+                    <input type="file" id="image" name="image" placeholder="Eng.." class="inputfield">
+                </div>
+           
+            </div>
+        </div>
+        <div class="outer-portion">
+            <h2 class="title">Parent Information</h2>
+            <hr class='bond-line'>
+        
+            <div class="container">
+                <div class="inner">
+                  <label for="fathername" class="labeltag"><h2>Father Name</h2></label>
+                  <input type="text" id="fathername" name="fathername" placeholder="First Name" class="inputfield">
+                </div>
+                <div class="inner">
+                  <label for="femail" class="labeltag"><h2>Father's Email</h2></label>
+                  <input type="Email" id="femail" name="femail" placeholder="abc@gmail.com" class="inputfield">
+                </div>
+                <div class="inner">
+                  <label for="fqualification" class="labeltag"><h2>Father Qualification</h2></label>
+                  <input type="text" id="fqualification" name="fqualification" placeholder="Qualification" class="inputfield">
+                </div>
+                <div class="inner">
+                  <label for="fprofession" class="labeltag"><h2>Father Profession</h2></label>
+                  <input type="text" id="fprofession"name="fprofession" placeholder="profession" class="inputfield">
+                  </div>
+                <div class="inner">
+                    <label for="fdesignation" class="labeltag"><h2>Father Designation</h2></label>
+                    <input type="text" name="fdesignation" id="fdesignation" placeholder="Father Desgination" class="inputfield">
+                </div>
+            </div>
+            <div class="container">
+                <div class="inner">
+                  <label for="fphone" class="labeltag"><h2>Father Contact No</h2></label>
+                  <input type="text" name="fphone" id="fphone" placeholder="123456789" class="inputfield">
+                 </div>
+            </div>
+            <!--Mother information portion-->
+            <div class="container">
+                <div class="inner">
+                  <label for="mothername" class="labeltag"><h2>Mother Name</h2></label>
+                  <input type="text" id="mothername" name="mothername" placeholder="Mother Name" class="inputfield">
+                </div>
+                <div class="inner">
+                  <label for="memail" class="labeltag"><h2>Mother's Email</h2></label>
+                  <input type="Email" id="memail" name="memail" placeholder="abc@gmail.com" class="inputfield">
+                </div>
+                <div class="inner">
+                  <label for="mqualification" class="labeltag"><h2>Mother's Qualification</h2></label>
+                  <input type="text" id="mqualification" name="mqualification" placeholder="Qualification" class="inputfield">
+                </div>
+                <div class="inner">
+                  <label for="mprofession" class="labeltag"><h2>Mother's Profession</h2></label>
+                  <input type="text" id="mprofession"name="mprofession" placeholder="profession" class="inputfield">
+                  </div>
+                <div class="inner">
+                    <label for="mdesignation" class="labeltag"><h2>Mother's Designation</h2></label>
+                    <input type="text" name="mdesignation" id="mdesignation" placeholder="Mother's Desgination" class="inputfield">
+                </div>
+                
+            </div>
+            <div class="container">
+                <div class="inner">
+                  <label for="mphone" class="labeltag"><h2>Mother Contact No</h2></label>
+                  <input type="text" name="mphone" id="mphone" placeholder="123456789" class="inputfield">
+                 </div>
+            </div>
+        </div>
+        <!--Guardian details-->
+        <div class="outer-portion">
+            <h2 class="title">Gurdian Information</h2>
+            <hr class='bond-line'>
+        
+            <div class="container">
+                <div class="inner">
+                  <label for="fullname" class="labeltag"><h2>Full Name</h2></label>
+                  <input type="text" id="fullname" name="fullname" placeholder="Full Name" class="inputfield">
+                </div>
+                <div class="inner">
+                  <label for="Gemail" class="labeltag"><h2>Email Address</h2></label>
+                  <input type="Email" id="Gemail" name="Gemail" placeholder="abc@gmail.com" class="inputfield">
+                </div>
+                <div class="inner">
+                  <label for="relation" class="labeltag"><h2>Relation With Student</h2></label>
+                  <input type="text" id="relation" name="relation" placeholder="relation" class="inputfield">
+                </div>
+                <div class="inner">
+                  <label for="Gphone" class="labeltag"><h2>Phone NO.</h2></label>
+                  <input type="text" id="Gphone"name="Gphone" placeholder="12345678" class="inputfield">
+                  </div>
+                <div class="inner">
+                    <label for="frelation" class="labeltag"><h2>First Relation</h2></label>
+                    <input type="text" name="frelation" id="frelation" placeholder="Uncle etc." class="inputfield">
+                </div>
+            </div>
+            <div class="container">
+                    <div class="inner">
+                        <label for="Srelation" class="labeltag"><h2>Second Relation</h2></label>
+                        <input type="text" name="Srelation" id="Srelation" placeholder="Second Relation.." class="inputfield">
+                   </div>
+                   <div class="inner">
+                        <label for="Sfirstnumber" class="labeltag"><h2>First Number</h2></label>
+                        <input type="text" name="Sfirstnumber" id="Sfirstnumber" placeholder="123456789" class="inputfield">
+                   </div>
+                   <div class="inner">
+                    <label for="Ssecondnumber" class="labeltag"><h2>Second Number</h2></label>
+                    <input type="text" name="Ssecondnumber" id="Ssecondnumber" placeholder="123456789" class="inputfield">
+                   </div>
+            </div>
+        </div>
+    
+        <!--Sibling details-->
+        <div class="outer-portion">
+        <h2 class="title">Sibling Information</h2>
+        <hr class='bond-line'>
+        <!--First Sibling-->
+        <div class="container">
+            <div class="inner">
+              <label for="Sibfullname" class="labeltag"><h2>Full Name</h2></label>
+              <input type="text" id="Sibfullname" name="Sibfullname" placeholder="Full Name" class="inputfield">
+            </div>
+            <div class="inner">
+              <label for="SibDOB" class="labeltag"><h2>Date of Birth</h2></label>
+              <input type="date" id="SibDOB" name="SibDOB" placeholder="" class="inputfield">
+            </div>
+            <div class="inner">
+              <label for="Sibgender" class="labeltag"><h2>Gender</h2></label>
+              <input type="text" id="Sibgender" name="Sibgender" placeholder="Gender" class="inputfield">
+            </div>
+            <div class="inner">
+              <label for="class" class="labeltag"><h2>Class</h2></label>
+                  <select name="Sibclass" id="" class="inputfield">
+                    <option value="Playgroup">Playgroup</option>
+                    <option value="Nursery">Nursery</option>
+                    <option value="Prep">Prep</option>
+                    <option value="One">One</option>
+                    <option value="Two">Two</option>
+                    <option value="Three">Three</option>
+                    <option value="Four">Four</option>
+                    <option value="Five">Five</option>
+                    <option value="Six">Six</option>
+                    <option value="Seven">Seven</option>
+                    <option value="Eight">Eight</option>
+                    <option value="9th">9th</option>
+                    <option value="10th">10th</option>
+                    <option value="1stYear">1stYear</option>
+                    <option value="2ndYear">2ndYear</option>
+                </select>
+              </div>
+            <div class="inner">
+                <label for="Sibschool" class="labeltag"><h2>School</h2></label>
+                <input type="text" name="Sibschool" id="Sibschool" placeholder="School Name" class="inputfield">
+            </div>
+        </div>
+        <!--Second Sibling-->
+        <div class="container">
+          <div class="inner">
+            <label for="Sibfullnamesecond" class="labeltag"><h2>Full Name</h2></label>
+            <input type="text" id="Sibfullname" name="Sibfullnamesecond" placeholder="Full Name" class="inputfield">
+          </div>
+          <div class="inner">
+            <label for="SibDOB" class="labeltag"><h2>Date of Birth</h2></label>
+            <input type="date" id="SibDOB" name="SibDOBsecond" placeholder="" class="inputfield">
+          </div>
+          <div class="inner">
+            <label for="Sibgender" class="labeltag"><h2>Gender</h2></label>
+            <input type="text" id="Sibgender" name="Sibgendersecond" placeholder="Gender" class="inputfield">
+          </div>
+          <div class="inner">
+            <label for="class" class="labeltag"><h2>Class</h2></label>
+                  <select name="Sibclasssecond" id="" class="inputfield">
+                    <option value="Playgroup">Playgroup</option>
+                    <option value="Nursery">Nursery</option>
+                    <option value="Prep">Prep</option>
+                    <option value="One">One</option>
+                    <option value="Two">Two</option>
+                    <option value="Three">Three</option>
+                    <option value="Four">Four</option>
+                    <option value="Five">Five</option>
+                    <option value="Six">Six</option>
+                    <option value="Seven">Seven</option>
+                    <option value="Eight">Eight</option>
+                    <option value="9th">9th</option>
+                    <option value="10th">10th</option>
+                    <option value="1stYear">1stYear</option>
+                    <option value="2ndYear">2ndYear</option>
+                </select>
+            </div>
+          <div class="inner">
+              <label for="Sibschool" class="labeltag"><h2>School</h2></label>
+              <input type="text" name="Sibschoolsecond" id="Sibschool" placeholder="School Name" class="inputfield">
+          </div>
+      </div>
+      <div class="container">
+        <div class="inner">
+          <label for="Sibfullname" class="labeltag"><h2>Full Name</h2></label>
+          <input type="text" id="Sibfullname" name="Sibfullnamethird" placeholder="Full Name" class="inputfield">
+        </div>
+        <div class="inner">
+          <label for="SibDOB" class="labeltag"><h2>Date of Birth</h2></label>
+          <input type="date" id="SibDOB" name="SibDOBthird" placeholder="" class="inputfield">
+        </div>
+        <div class="inner">
+          <label for="Sibgender" class="labeltag"><h2>Gender</h2></label>
+          <input type="text" id="Sibgender" name="Sibgenderthird" placeholder="Gender" class="inputfield">
+        </div>
+        <div class="inner">
+          <label for="class" class="labeltag"><h2>Class</h2></label>
+                  <select name="Sibclassthird" id="" class="inputfield">
+                    <option value="Playgroup">Playgroup</option>
+                    <option value="Nursery">Nursery</option>
+                    <option value="Prep">Prep</option>
+                    <option value="One">One</option>
+                    <option value="Two">Two</option>
+                    <option value="Three">Three</option>
+                    <option value="Four">Four</option>
+                    <option value="Five">Five</option>
+                    <option value="Six">Six</option>
+                    <option value="Seven">Seven</option>
+                    <option value="Eight">Eight</option>
+                    <option value="9th">9th</option>
+                    <option value="10th">10th</option>
+                    <option value="1stYear">1stYear</option>
+                    <option value="2ndYear">2ndYear</option>
+                </select>
+          </div>
+        <div class="inner">
+            <label for="Sibschool" class="labeltag"><h2>School</h2></label>
+            <input type="text" name="Sibschoolthird" id="Sibschool" placeholder="School Name" class="inputfield">
+        </div>
+    </div>
+    <div class="container">
+      <div class="inner">
+        <label for="Sibfullname" class="labeltag"><h2>Full Name</h2></label>
+        <input type="text" id="Sibfullname" name="Sibfullnamefourth" placeholder="Full Name" class="inputfield">
+      </div>
+      <div class="inner">
+        <label for="SibDOB" class="labeltag"><h2>Date of Birth</h2></label>
+        <input type="date" id="SibDOB" name="SibDOBfourth" placeholder="" class="inputfield">
+      </div>
+      <div class="inner">
+        <label for="Sibgender" class="labeltag"><h2>Gender</h2></label>
+        <input type="text" id="Sibgender" name="Sibgenderfourth" placeholder="Gender" class="inputfield">
+      </div>
+      <div class="inner">
+        <label for="class" class="labeltag"><h2>Class</h2></label>
+                  <select name="Sibclassfourth" id="" class="inputfield">
+                    <option value="Playgroup">Playgroup</option>
+                    <option value="Nursery">Nursery</option>
+                    <option value="Prep">Prep</option>
+                    <option value="One">One</option>
+                    <option value="Two">Two</option>
+                    <option value="Three">Three</option>
+                    <option value="Four">Four</option>
+                    <option value="Five">Five</option>
+                    <option value="Six">Six</option>
+                    <option value="Seven">Seven</option>
+                    <option value="Eight">Eight</option>
+                    <option value="9th">9th</option>
+                    <option value="10th">10th</option>
+                    <option value="1stYear">1stYear</option>
+                    <option value="2ndYear">2ndYear</option>
+                </select>
+        </div>
+      <div class="inner">
+          <label for="Sibschool" class="labeltag"><h2>School</h2></label>
+          <input type="text" name="Sibschoolfourth" id="Sibschool" placeholder="School Name" class="inputfield">
+      </div>
+  </div>
+  <div class="container">
+    <div class="inner">
+      <label for="Sibfullname" class="labeltag"><h2>Full Name</h2></label>
+      <input type="text" id="Sibfullname" name="Sibfullnamefifth" placeholder="Full Name" class="inputfield">
+    </div>
+    <div class="inner">
+      <label for="SibDOB" class="labeltag"><h2>Date of Birth</h2></label>
+      <input type="date" id="SibDOB" name="SibDOBfifth" placeholder="" class="inputfield">
+    </div>
+    <div class="inner">
+      <label for="Sibgender" class="labeltag"><h2>Gender</h2></label>
+      <input type="text" id="Sibgender" name="Sibgenderfifth" placeholder="Gender" class="inputfield">
+    </div>
+    <div class="inner">
+      <label for="class" class="labeltag"><h2>Class</h2></label>
+                  <select name="Sibclassfifth" id="" class="inputfield">
+                    <option value="Playgroup">Playgroup</option>
+                    <option value="Nursery">Nursery</option>
+                    <option value="Prep">Prep</option>
+                    <option value="One">One</option>
+                    <option value="Two">Two</option>
+                    <option value="Three">Three</option>
+                    <option value="Four">Four</option>
+                    <option value="Five">Five</option>
+                    <option value="Six">Six</option>
+                    <option value="Seven">Seven</option>
+                    <option value="Eight">Eight</option>
+                    <option value="9th">9th</option>
+                    <option value="10th">10th</option>
+                    <option value="1stYear">1stYear</option>
+                    <option value="2ndYear">2ndYear</option>
+                </select>
+      </div>
+    <div class="inner">
+        <label for="Sibschool" class="labeltag"><h2>School</h2></label>
+        <input type="text" name="Sibschoolfifth" id="Sibschool" placeholder="School Name" class="inputfield">
+    </div>
+</div>
+        </div>
+        <div class="outer-portion">
+        <h2 class="title">Reference Detail</h2>
+        <hr class='bond-line'>
+    
+        <div class="container">
+            <div class="middle">
+            <div class="inner">
+              <label for="refername" class="labeltag"><h2>Reference Through</h2></label>
+              <input type="text" id="refername" name="refername" placeholder="Full Name" class="inputfield">
+            </div>
+            <div class="inner">
+              <label for="referaddress" class="labeltag"><h2>Address</h2></label>
+              <input type="text" id="referaddress" name="referaddress" placeholder="123 street" class="inputfield">
+            </div>
+            <div class="inner">
+              <label for="referphone" class="labeltag"><h2>Phone No</h2></label>
+              <input type="text" id="referphone" name="referphone" placeholder="12345677" class="inputfield">
+            </div>
+        </div>
+        </div>
+        <input type="submit" value="Submit" class="submit-btn">
+       <a href="{% url 'home' %}" class="cancel-btn">Cancel</a>
+    
+        </div>
+    </form>
+    </div>
+
+ </div>
+{% endblock main-section %}

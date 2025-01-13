@@ -1,0 +1,77 @@
+{% extends "students/base.html" %}
+{% load custom_filters %}
+{% load static %}
+{% block styleblock %}
+<link rel="stylesheet" href="{% static 'css/showmarks.css'%}">
+{% endblock styleblock %}
+
+{% block main-section %}
+<div class="hero">
+    <div class="title">
+        <h1>Marks Records</h1>
+    </div>
+
+    <div class="form-control">
+        <form action="" method="GET">
+            <label for="input">Enter Class</label>
+            <select name="class" id="input" class="inputfield" style="text-align:center;">
+                <option value="Nursery">Nursery</option>
+                <option value="Prep">Prep</option>
+                <option value="One">One</option>
+                <option value="Two">Two</option>
+                <option value="Three">Three</option>
+                <option value="Four">Four</option>
+                <option value="Five">Five</option>
+                <option value="Six">Six</option>
+                <option value="Seven">Seven</option>
+                <option value="Eight">Eight</option>
+                <option value="9th">9th</option>
+                <option value="10th">10th</option>
+            </select>
+            <input type="submit" value="Search" class="search-button">
+        </form>
+    </div>
+    <div class="table-data">
+        <table>
+            <thead>
+                <tr>
+                   <th>Full Name</th>
+                   <th>Roll No</th>
+                   <th>Class</th>
+                   <th>Session</th>
+                   <th>English</th>
+                   <th>Math</th>
+                   <th>Urdu</th>
+                   <th>Pak Study</th>
+                   <th>Isl</th>
+                   <th>Science</th>
+                   <th>Total</th>
+                   <th>Obtained</th>
+                   <th>Percentage</th>
+                   <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for record in records %}
+                <tr>
+                <td>{{record.student.Full_Name}}</td>
+                <td>{{record.rollno}}</td>
+                <td>{{record.Class}}</td>
+                <td>{{record.session}}</td>
+                <td>{{record.English_Obj_marks}}</td>
+                <td>{{record.Math_Obj_marks}}</td>
+                <td>{{record.Urdu_Obj_marks}}</td>
+                <td>{{record.Pak_Obj_marks}}</td>
+                <td>{{record.Isl_Obj_marks}}</td>
+                <td>{{record.Science_Obj_marks}}</td>
+                <td>{{Total_marks}}</td>
+                <td>{{record.English_Obj_marks|add:record.Math_Obj_marks|add:record.Isl_Obj_marks|add:record.Urdu_Obj_marks|add:record.Pak_Obj_marks|add:record.Science_Obj_marks}}</td>
+                <td>{{record.English_Obj_marks|add:record.Math_Obj_marks|add:record.Isl_Obj_marks|add:record.Urdu_Obj_marks|add:record.Pak_Obj_marks|add:record.Science_Obj_marks|Percentage:Total_marks}}%</td>
+                <td><a href="{% url 'delete' record.id%}">Delete</a></td>    
+            </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock main-section %}

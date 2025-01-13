@@ -1,0 +1,80 @@
+{% extends "students/base.html" %}
+{% load static %}
+{% block styleblock %}
+<link rel="stylesheet" href="{% static 'css/addexam.css'%}">
+{% endblock styleblock %}
+
+{% block main-section %}
+<div class="hero">
+    <div class="title">
+        <h1>Add Exam</h1>
+    </div>
+    <div class="form-control">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <table>
+                <thead>
+
+                </thead>
+                <tbody>
+                      <tr>
+                        <th>Full Name</th>
+                        <td><input type="text" name="fullname" class="inputfield"></td>
+                        <th>Class</th>
+                        <td><input type="text" name="class" class="inputfield"></td>
+
+                      </tr>
+                      
+                      <tr>
+                        <th>Roll No</th>
+                        <td><input type="text" name="rollno" class="inputfield"></td>
+                        <th>session</th>
+                        <td><input type="text" name="session" class="inputfield"></td>
+                      </tr>
+                      <tr>
+                        <th>English</th>
+                        <td><input type="text" name="eng" class="inputfield"></td>
+                        <th>Math</th>
+                        <td><input type="text" name="math" class="inputfield"></td>  
+                    </tr>
+                      <tr>
+                        <th>Biology</th>
+                        <td><input type="text" name="Bio" class="inputfield"></td>
+                        <th>Science</th>
+                        <td><input type="text" name="Sci" class="inputfield"></td>
+                      </tr>
+                      
+                      <tr>
+                        <th>Physics</th>
+                        <td><input type="text" name="Phy" class="inputfield"></td>
+                        <th>Computer</th>
+                        <td><input type="text" name="com" class="inputfield"></td>
+                      </tr>
+                      <tr>
+                        <th>Chemistry</th>
+                        <td><input type="text" name="chem" class="inputfield"></td>
+                        <th>Pakstudy</th>
+                        <td><input type="text" name="pak" class="inputfield"></td>
+                      </tr>
+
+                      <tr>
+                        <th>Islamiyat</th>
+                        <td><input type="text" name="isl" class="inputfield"></td>
+                        <th>Urdu</th>
+                        <td><input type="text" name="urdu" class="inputfield"></td>
+                      </tr>               
+                </tbody>
+            </table>
+            <div class="button">
+                <input type="submit" value="Submit" class="sub-button">
+            </div>
+            
+        </form>
+    </div>
+    <dir>
+      {% for message in messages %}
+      {{message}}
+      {% endfor %}
+    </dir>
+</div>
+{% endblock main-section %}

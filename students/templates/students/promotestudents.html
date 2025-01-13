@@ -1,0 +1,58 @@
+{% extends 'students/base.html'%}
+{% load static %}
+{% block styleblock %}
+<link rel="stylesheet" href="{% static 'css/promotestudent.css'%}">
+{% endblock styleblock %}
+
+{% block main-section %}
+  <div class="hero">
+    <div class="heading-title">
+        <h1>Promote Students</h1>
+    </div>
+
+    <!-- Class Promotion Form-->
+    <form action="" method="POST">
+        {% csrf_token %}
+        
+        <div class="option-list">
+            <label for="">Enter Which Class You want to Promote</label>
+        <select name="firstclass" id="" class="inputfield">
+            <option value="Nursery">Nursery</option>
+            <option value="Prep">Prep</option>
+            <option value="One">One</option>
+            <option value="Two">Two</option>
+            <option value="Three">Three</option>
+            <option value="Four">Four</option>
+            <option value="Five">Five</option>
+            <option value="Six">Six</option>
+            <option value="Seven">Seven</option>
+            <option value="Eight">Eight</option>
+            <option value="9th">9th</option>
+            <option value="10th">10th</option>
+        </select>
+    </div>
+
+    <div class="option-list">
+        <label for="">In which class Students are being promoted  </label>
+    <select name="secondclass" id="" class="inputfield">
+        <option value="Prep">Prep</option>
+        <option value="One">One</option>
+        <option value="Two">Two</option>
+        <option value="Three">Three</option>
+        <option value="Four">Four</option>
+        <option value="Five">Five</option>
+        <option value="Six">Six</option>
+        <option value="Seven">Seven</option>
+        <option value="Eight">Eight</option>
+        <option value="9th">9th</option>
+        <option value="10th">10th</option>
+    </select>
+    </div>
+    <div class="button">
+        <input type="submit" value="Promote" class="submit-btn">
+    </div>
+
+    </form>
+  </div>
+{% endblock main-section %}
+

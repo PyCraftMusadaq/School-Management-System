@@ -1,0 +1,68 @@
+{% extends 'students/base.html'%}
+{% load  static %}
+{% block styleblock %}
+<link rel="stylesheet" href="{% static 'css/teacherdetail.css'%}">
+{% endblock styleblock %}
+
+{% block main-section %}
+<div class="hero">
+    <div class="detail">
+        <h1>Teacher Detail</h1>
+    </div>
+    <div class="message-alert">
+        {% for message in messages %}
+        {{message}}
+        {% endfor %}
+    </div>
+    
+    <form action="" method="GET" class="form-class">
+        <label for="search">Enter Teacher's Name</label>
+        <input type="text" name="name" id="search" placeholder="Search via Name" class="inputfield">
+    </form>
+
+    <div class="data-table">
+        <table class="table">
+            <tr>
+                <td class="imgrow" style="width: 35%;">
+                    <img src="{{ teacher.Profile_Image.url }}" alt="Teacher Image 1" style="width: 100%; height: auto; display: block; object-fit: cover;">
+                </td>
+                <td class="imgrow" style="width: 35%;">
+                    <img src="{{ teacher.Degree_Image.url }}" alt="Teacher Image 2" style="width: 100%; height: auto; display: block; object-fit: cover;">
+                </td>
+                <td style="width: 30%;" colspan="4">
+                    <table style="width: 100%;">
+                        <tr>
+                            <th>Full Name</th>
+                            <td>{{ teacher.Full_Name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Father Name</th>
+                            <td>{{ teacher.Father_Name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Education</th>
+                            <td>{{ teacher.Education }}</td>
+                        </tr>
+                        <tr>
+                            <th>Cnic</th>
+                            <td>{{ teacher.Cnic }}</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <th>Contact</th>
+                <td>{{ teacher.contact }}</td>
+                <th>Address</th>
+                <td>{{ teacher.Address }}</td>
+                <th>Home Contact</th>
+                <td>{{ teacher.Home_contact }}</td>
+            </tr>
+        </table>
+        
+        </div>
+
+
+
+</div>
+{% endblock main-section %}

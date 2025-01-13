@@ -1,0 +1,31 @@
+{% extends 'students/base.html' %}
+{% load static %}
+{% block styleblock %}
+<link rel="stylesheet" href="{% static 'css/AddFee.css'%}">
+{% endblock styleblock %}
+
+{% block main-section %}
+<div class="myhero">
+    {% for message in messages %}
+    <span class="message-alert">{{message}}</span>
+    {% endfor %}
+    <div class="fee-heading">
+        <h1>Enter The Fee Record</h1>
+    </div>
+    <div class="form-control">
+        <form action="" method="POST" class="myform">
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="umer">
+                {{field.label_tag}}
+                {{field}}
+            </div>
+            {% endfor %}
+            <div class="sub-button">
+                <input type="submit" value="Submit" class="submit-btn">
+            </div>
+            
+        </form>
+    </div>
+</div>
+{% endblock main-section %}

@@ -1,0 +1,56 @@
+{%extends 'students/base.html'%}
+{% load static %}
+{% block styleblock %}
+<link rel="stylesheet" href="{% static 'css/FeeReport.css'%}">
+{% endblock styleblock %}
+
+
+{% block main-section %}
+ <div class="hero">
+    <h1 class="report-heading">Fee Reports</h1>
+    <ul class="text-guide">
+        <li><p>Click On the ID to Update Record of Student.</p></li>
+    </ul>
+    <div class="search">
+        <form action="" method="GET">
+            <label for="search">Search</label>
+            <input type="text" name="q" placeholder="Enter Your Query Here"  class="inputfield">
+        </form>
+        <a href="{% url 'feereport' %}" class="All-btn">All Students</a>
+    </div>
+    <div class="table-data">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Roll Number</th>
+                    <th>Full Name</th>
+                    <th>Father Name</th>
+                    <th>Class</th>
+                    <th>Month</th>
+                    <th>Paid Date</th>
+                    <th>Paid Amount</th>
+                    <th>Dues</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for fee in feereport %}
+                <tr>
+                    <td><a href="{% url 'updatefeerecord' fee.id %}" style="text-decoration:none;color:black;">{{fee.id}}</a></td>
+                    <td>{{fee.Roll_No}}</td>
+                    <td>{{fee.Full_Name}}</td>
+                    <td>{{fee.Father_Name}}</td>
+                    <td>{{fee.Class}}</td>
+                    <td>{{fee.Month}}</td>
+                    <td>{{fee.Paid_Date}}</td>
+                    <td>{{fee.Paid_Amount}}</td>
+                    <td>{{fee.Dues}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <tbody></tbody>
+        </table>
+    </div>
+ </div>
+{% endblock main-section %}
+
